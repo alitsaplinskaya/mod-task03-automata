@@ -10,7 +10,7 @@ int main()
 	cofeem.on();
 	cofeem.cash(40);
 	cofeem.cash(35);
-	cofeem.check(5); //75
+	cofeem.check(5); 
 	cofeem.off();
 
 	return 0;

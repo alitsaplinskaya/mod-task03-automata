@@ -9,7 +9,7 @@ Automata::Automata()
 	price = new int[10];
 	price =[50, 55, 60, 65, 70, 75, 80, 90, 100, 130];
 	money = 0;
-	NowStatus = OFF;
+	NowStatus = off;
 }
 void Automata::on()
 {

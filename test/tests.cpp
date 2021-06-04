@@ -18,6 +18,7 @@ TEST(task, test2)
     Status result = cofeem.getStatus();
     EXPECT_EQ(wait, result);
 }
+
 TEST(task, test3)
 {
     Automata cofeem = Automata();
