@@ -32,5 +32,5 @@ TEST(task, test4)
     cofeem.cash(55);
     cofeem.check(1);
     Status result = cofeem.getStatus();
-    EXPECT_EQ(Status::Wait, result);
+    EXPECT_EQ(Status::cook, result);
 }
