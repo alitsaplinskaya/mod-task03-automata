@@ -1,15 +1,13 @@
-#include "Automata.h"
+#include "../include/Automata.h"
 #include <iostream>
 using namespace std;
 
 Automata::Automata()
 {
-	menu = new string[10];
-	menu = ["latte", "esspreso", "double esspreso", "capuchino", "hot chocolate", "americano", "raf", "frappe", "glyasse", "makkiato"];
-	price = new int[10];
-	price =[50, 55, 60, 65, 70, 75, 80, 90, 100, 130];
+	menu = new string[10]{ "latte", "esspreso", "double esspreso", "capuchino", "hot chocolate", "americano", "raf", "frappe", "glyasse", "makkiato" };
+	price = new int[10]{ 50, 55, 60, 65, 70, 75, 80, 90, 100, 130 };
 	money = 0;
-	NowStatus = off;
+	NowStatus = Status::off;
 }
 void Automata::on()
 {
@@ -24,7 +22,7 @@ Status Automata::getStatus()
 {
 	return NowStatus;
 }
-void Automata::cash(int inMoney) 
+void Automata::cash(int inMoney)
 {
 	if (getStatus() == wait || getStatus() == accept)
 	{
@@ -56,20 +54,20 @@ bool Automata::proof(int checkup)
 		else return false;
 	}
 }
-int Automata::cook()
+void Automata::cook()
 {
 	if (getStatus() == control)
 	{
-		NowStatus = cook;
-		if (money == 0) 
-			finish(); 
+		NowStatus = Status::cook;
+		if (money == 0)
+			finish();
 	}
 }
 int Automata::cancel()
 {
 	if (getStatus() == wait || getStatus() == control)
 	{
-		int temp = money; 
+		int temp = money;
 		NowStatus = wait;
 		money = 0;
 		return temp;
@@ -78,7 +76,7 @@ int Automata::cancel()
 }
 int Automata::finish()
 {
-	if (getStatus() == cook)
+	if (getStatus() == Status::cook)
 	{
 		NowStatus = wait;
 		int temp = money;
@@ -88,7 +86,7 @@ int Automata::finish()
 }
 void Automata::off()
 {
-	NowStatus = off;
+	NowStatus = Status::off;
 }
 Automata::~Automata()
 {

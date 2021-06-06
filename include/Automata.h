@@ -2,7 +2,7 @@
 
 using namespace std;
 
-enum STATES
+enum Status
 {
 	on,
 	off,
