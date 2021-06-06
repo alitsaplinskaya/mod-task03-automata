@@ -6,7 +6,7 @@ enum Status
 {
 	on,
 	off,
-	wait,
+	Wait,
 	cook,
 	control, //CHEK
 	accept

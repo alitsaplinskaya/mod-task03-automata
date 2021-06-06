@@ -11,7 +11,7 @@ Automata::Automata()
 }
 void Automata::on()
 {
-	NowStatus = wait;
+	NowStatus = Wait;
 	money = 0;
 }
 const string* Automata::etMenu()
@@ -24,9 +24,9 @@ Status Automata::getStatus()
 }
 void Automata::cash(int inMoney)
 {
-	if (getStatus() == wait || getStatus() == accept)
+	if (getStatus() == Wait || getStatus() == accept)
 	{
-		if (getStatus() == wait) {
+		if (getStatus() == Wait) {
 			NowStatus = accept;
 		}
 		money += inMoney;
@@ -65,10 +65,10 @@ void Automata::cook()
 }
 int Automata::cancel()
 {
-	if (getStatus() == wait || getStatus() == control)
+	if (getStatus() == Wait || getStatus() == control)
 	{
 		int temp = money;
-		NowStatus = wait;
+		NowStatus = Wait;
 		money = 0;
 		return temp;
 	}
@@ -78,7 +78,7 @@ int Automata::finish()
 {
 	if (getStatus() == Status::cook)
 	{
-		NowStatus = wait;
+		NowStatus = Wait;
 		int temp = money;
 		money = 0;
 		return temp;

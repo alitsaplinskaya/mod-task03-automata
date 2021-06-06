@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Automata.h"
+#include "../include/Automata.h"
 
 TEST(task, test1)
 {
@@ -7,8 +7,8 @@ TEST(task, test1)
     cofeem.on();
     cofeem.cash(0);
     cofeem.check(1);
-    Status result = cofee.getStatus();
-    EXPECT_EQ(wait, result);
+    Status result = cofeem.getStatus();
+    EXPECT_EQ(Status::Wait, result);
 }
 TEST(task, test2)
 {
@@ -16,14 +16,14 @@ TEST(task, test2)
     cofeem.on();
     cofeem.check(1);
     Status result = cofeem.getStatus();
-    EXPECT_EQ(wait, result);
+    EXPECT_EQ(Status::Wait, result);
 }
 
 TEST(task, test3)
 {
     Automata cofeem = Automata();
     Status result = cofeem.getStatus();
-    EXPECT_EQ(off, result);
+    EXPECT_EQ(Status::off, result);
 }
 TEST(task, test4)
 {
@@ -32,5 +32,5 @@ TEST(task, test4)
     cofeem.cash(55);
     cofeem.check(1);
     Status result = cofeem.getStatus();
-    EXPECT_EQ(wait, result);
+    EXPECT_EQ(Status::Wait, result);
 }
